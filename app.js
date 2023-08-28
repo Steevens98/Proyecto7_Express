@@ -15,6 +15,9 @@ var CitaRouter = require('./routes/rest_cita');
 var EspecialidadRouter = require('./routes/rest_especialidad');
 var TituloRouter = require('./routes/rest_titulo');
 
+const swaggerUi = require('swagger-ui-express');
+const swaggerFile = require('./swagger_output.json');
+
 var app = express();
 
 /* AGREGUE EL MIDDLEWARE CORS */
@@ -37,6 +40,8 @@ app.use('/rest/Paciente', PacienteRouter);
 app.use('/rest/Cita', CitaRouter);
 app.use('/rest/Especialidad', EspecialidadRouter);
 app.use('/rest/Titulo', TituloRouter);
+
+app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 
 // catch 404 and forward to error handler
