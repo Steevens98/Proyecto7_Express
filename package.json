@@ -3,9 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
+    "packages:install": "npm install sequelize pg && npm install --save-dev sequelize-cli",
     "swagger-autogen": "node swagger.js",
-    "packages:install": "npm install sequelize pg && npm install --save-dev sequelize-cli"
+    "start": "node ./bin/www",
+    "start": "npm run packages:install && node ./bin/www",
+    "prev:start": "node ./bin/www"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
